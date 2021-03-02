@@ -9,27 +9,27 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
 
-  const [player, setPlayer]=useState([]);
+  const [player, setPlayer] = useState([]);
   const [cart, setCart] = useState([]);
-  useEffect(() =>{
+  useEffect(() => {
     setPlayer(playerData);
     const names = playerData.map(player => player.name)
   }, [])
 
 
-  const handleAddPlayer =(player) => {
-    const newCart =[...cart, player];
+  const handleAddPlayer = (player) => {
+    const newCart = [...cart, player];
     setCart(newCart);
   }
   return (
     <div>
       <h1 className="add-player">Player Added:{cart.length} </h1>
-      
+
       <Cart cart={cart}></Cart>
-      
+
       <ul>
         {
-          player.map( player => <Player player={player} handleAddPlayer={handleAddPlayer}></Player>)
+          player.map(player => <Player player={player} handleAddPlayer={handleAddPlayer}></Player>)
         }
       </ul>
     </div>
